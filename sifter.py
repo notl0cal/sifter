@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
+#import statements
 import matplotlib.pyplot as plt
 import sys
 import re
-
+#main call
 def harvester(file):
     d = {}
     ipsa = []
@@ -17,12 +18,14 @@ def harvester(file):
                 d[ip] += 1
             else:
                 d[ip] = 1
+#output
     for key, value in sorted(d.items()):
         perc = ((value / count) * 100)
         print(key + " - " + str(round(perc, 2))+ "%")
         ipsa.append(key)
         ipsp.append(perc)
-    
+    print("Number of IP Addresses: " + str(count))
+#graph maths
     fig, ax = plt.subplots(figsize=(16, 9))
     ax.barh(ipsa, ipsp)
     for s in ['top', 'bottom', 'left', 'right']:
@@ -43,12 +46,11 @@ def harvester(file):
     ax.set_title('Harvested IP Addresses',
                 loc ='left', )
     plt.show()
-    print("Number of IP Addresses: " + str(count))
-
+#main function and argument call
 def main():
     args = sys.argv[1]
     with open(args) as open_file:
         harvester(open_file)
-
+#dunder check
 if __name__ == "__main__":
     main()
