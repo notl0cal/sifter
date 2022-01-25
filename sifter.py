@@ -10,13 +10,8 @@ except:
     import matplotlib.pyplot as plt
 import sys
 import re
-<<<<<<< HEAD
-#main function
-def harvester(file):
-=======
 #main call
 def sifter(file):
->>>>>>> 26d262aa058a5a5f7ef88768f5ae1f553cdcac77
     d = {}
     ipsa = []
     ipsp = []
