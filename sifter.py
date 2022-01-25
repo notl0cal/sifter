@@ -3,7 +3,7 @@
 import matplotlib.pyplot as plt
 import sys
 import re
-#main call
+#main function
 def harvester(file):
     d = {}
     ipsa = []
@@ -46,7 +46,7 @@ def harvester(file):
     ax.set_title('Harvested IP Addresses',
                 loc ='left', )
     plt.show()
-#main function and argument call
+#main function call and arg assignment
 def main():
     args = sys.argv[1]
     with open(args) as open_file:
