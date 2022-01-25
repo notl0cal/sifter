@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 #import statements
-import matplotlib.pyplot as plt
+import pip
+def install(pckg):
+    pip.main(['install', pckg])
+try:
+    import matplotlib.pyplot as plt
+except:
+    install("matplotlib")
+    import matplotlib.pyplot as plt
 import sys
 import re
 #main call
-def harvester(file):
+def sifter(file):
     d = {}
     ipsa = []
     ipsp = []
@@ -19,9 +26,10 @@ def harvester(file):
             else:
                 d[ip] = 1
 #output
+    print("IP - % Occured | # Occured / Total IP's")
     for key, value in sorted(d.items()):
         perc = ((value / count) * 100)
-        print(key + " - " + str(round(perc, 2))+ "%")
+        print(key + " - " + str(round(perc, 2))+ "%" + " | " + str(value) + " / " + str(count))
         ipsa.append(key)
         ipsp.append(perc)
     print("Number of IP Addresses: " + str(count))
@@ -50,7 +58,7 @@ def harvester(file):
 def main():
     args = sys.argv[1]
     with open(args) as open_file:
-        harvester(open_file)
+        sifter(open_file)
 #dunder check
 if __name__ == "__main__":
     main()
