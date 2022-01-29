@@ -1,5 +1,5 @@
 # sifter
-IP Sifter. Give it a file.
+IP Sifter. Pass a file as an argument to Sift IP's from text.
 
 USAGE:
-$ python sifter.py [file]
+In Terminal: $ python sifter.py [file]
